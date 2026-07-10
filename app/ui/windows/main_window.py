@@ -12,7 +12,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-
+from app.ui.widgets.sidebar import Sidebar
 
 class MainWindow(QMainWindow):
 
@@ -54,14 +54,7 @@ class MainWindow(QMainWindow):
         body.setContentsMargins(0, 0, 0, 0)
 
         # Sidebar Placeholder
-        sidebar = QLabel("Sidebar\n\n(Coming Soon)")
-        sidebar.setFixedWidth(220)
-        sidebar.setAlignment(Qt.AlignCenter)
-        sidebar.setStyleSheet("""
-            background:#1E3A8A;
-            color:white;
-            font-size:16px;
-        """)
+        sidebar = Sidebar()      
 
         # Workspace Placeholder
         workspace = QLabel("Dashboard Area")
