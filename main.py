@@ -1,22 +1,20 @@
 import sys
 
-from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QLabel
+from PySide6.QtWidgets import QApplication
 
 from app.core.startup import startup
-from app.core.version import FULL_TITLE
+from app.ui.windows.splash_screen import SplashScreen
 
 
 def main():
+
     startup()
 
     app = QApplication(sys.argv)
 
-    label = QLabel(FULL_TITLE)
-    label.setAlignment(Qt.AlignCenter)
-    label.setWindowTitle(FULL_TITLE)
-    label.resize(700, 400)
-    label.show()
+    splash = SplashScreen()
+
+    splash.show()
 
     sys.exit(app.exec())
 
