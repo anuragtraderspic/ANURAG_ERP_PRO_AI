@@ -3,7 +3,7 @@ import sys
 from PySide6.QtWidgets import QApplication
 
 from app.core.startup import startup
-from app.ui.windows.login_window import LoginWindow
+from app.ui.windows.main_window import MainWindow
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
 
     app = QApplication(sys.argv)
 
-    window = LoginWindow()
+    window = MainWindow()
     window.show()
 
     sys.exit(app.exec())
