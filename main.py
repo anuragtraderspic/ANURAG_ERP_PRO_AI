@@ -3,7 +3,7 @@ import sys
 from PySide6.QtWidgets import QApplication
 
 from app.core.startup import startup
-from app.ui.windows.splash_screen import SplashScreen
+from app.ui.windows.login_window import LoginWindow
 
 
 def main():
@@ -12,9 +12,8 @@ def main():
 
     app = QApplication(sys.argv)
 
-    splash = SplashScreen()
-
-    splash.show()
+    window = LoginWindow()
+    window.show()
 
     sys.exit(app.exec())
 
