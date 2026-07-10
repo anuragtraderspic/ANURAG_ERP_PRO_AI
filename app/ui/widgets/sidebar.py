@@ -30,7 +30,7 @@ class Sidebar(QWidget):
                 border:none;
                 text-align:left;
                 padding:12px 15px;
-                font-size:13px;
+                font-size:23px;
             }
 
             QPushButton:hover{

@@ -41,7 +41,7 @@ class MainWindow(QMainWindow):
         topbar.setStyleSheet("""
             background:#2563EB;
             color:white;
-            font-size:16px;
+            font-size:26px;
             font-weight:bold;
             padding-left:20px;
         """)
