@@ -16,40 +16,40 @@ from PySide6.QtWidgets import (
 class DashboardCard(QFrame):
 
     def __init__(self, title, value, color):
-
         super().__init__()
 
-        self.setMinimumHeight(60)
+        self.setFixedSize(220, 90)
 
         self.setStyleSheet(f"""
-        QFrame{{
-            background:white;
-            border:2px solid {color};
-            border-radius:12px;
+        QFrame {{
+            background: white;
+            border: 2px solid {color};
+            border-radius: 10px;
         }}
         """)
 
         layout = QVBoxLayout(self)
+        layout.setContentsMargins(10, 8, 10, 8)
+        layout.setSpacing(4)
 
         lbl1 = QLabel(title)
         lbl1.setAlignment(Qt.AlignCenter)
         lbl1.setStyleSheet("""
-        font-size:20px;
-        font-weight:bold;
-        color:#444;
+            font-size:12px;
+            font-weight:600;
+            color:#64748B;
         """)
 
         lbl2 = QLabel(value)
         lbl2.setAlignment(Qt.AlignCenter)
         lbl2.setStyleSheet(f"""
-        font-size:20px;
-        font-weight:bold;
-        color:{color};
+            font-size:18px;
+            font-weight:700;
+            color:{color};
         """)
 
         layout.addWidget(lbl1)
         layout.addWidget(lbl2)
-
 
 class DashboardPage(QWidget):
 
@@ -80,6 +80,7 @@ class DashboardPage(QWidget):
             ("Transactions", "0", "#6366F1"),
 
         ]
+        grid.setAlignment(Qt.AlignTop)
 
         row = 0
         col = 0

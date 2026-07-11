@@ -36,32 +36,26 @@ class MainWindow(QMainWindow):
         root.setContentsMargins(0, 0, 0, 0)
         root.setSpacing(0)
 
-        # ---------------- Top Bar ----------------
+        # ---------- Top Bar ----------
+        top = TopBar()
+        root.addWidget(top)
 
-        topbar = TopBar()
-
-        # ---------------- Body ----------------
-
+        # ---------- Body ----------
         body = QHBoxLayout()
         body.setContentsMargins(0, 0, 0, 0)
+        body.setSpacing(0)
 
-        # Sidebar Placeholder
-        sidebar = Sidebar()      
+        sidebar = Sidebar()
+        sidebar.setFixedWidth(220)
 
-        # Workspace Placeholder
         workspace = DashboardPage()
-       
 
         body.addWidget(sidebar)
-        body.addWidget(workspace)
+        body.addWidget(workspace, 1)
 
         root.addLayout(body)
 
-        # ---------------- Status Bar ----------------
-
+        # ---------- Status Bar ----------
         status = Status()
-
         self.setStatusBar(status)
-        
-
-        self.setStatusBar(status)
+            
