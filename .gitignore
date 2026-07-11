@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Environment
+.env
+
+# Logs
+logs/
+*.log
+
+# VS Code
+.vscode/
+
+# Backups
+backup/
+backups/
