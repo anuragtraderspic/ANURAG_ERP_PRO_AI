@@ -13,6 +13,9 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 from app.ui.widgets.sidebar import Sidebar
+from app.ui.widgets.topbar import TopBar
+from app.ui.widgets.statusbar import Status
+from app.ui.pages.dashboard_page import DashboardPage
 
 class MainWindow(QMainWindow):
 
@@ -35,18 +38,7 @@ class MainWindow(QMainWindow):
 
         # ---------------- Top Bar ----------------
 
-        topbar = QLabel("🏢  ANURAG ERP PRO AI  |  Enterprise Edition")
-        topbar.setFixedHeight(55)
-        topbar.setAlignment(Qt.AlignVCenter | Qt.AlignLeft)
-        topbar.setStyleSheet("""
-            background:#2563EB;
-            color:white;
-            font-size:26px;
-            font-weight:bold;
-            padding-left:20px;
-        """)
-
-        root.addWidget(topbar)
+        topbar = TopBar()
 
         # ---------------- Body ----------------
 
@@ -57,14 +49,8 @@ class MainWindow(QMainWindow):
         sidebar = Sidebar()      
 
         # Workspace Placeholder
-        workspace = QLabel("Dashboard Area")
-        workspace.setAlignment(Qt.AlignCenter)
-        workspace.setStyleSheet("""
-            background:#F4F7FC;
-            color:#1E293B;
-            font-size:22px;
-            font-weight:bold;
-        """)
+        workspace = DashboardPage()
+       
 
         body.addWidget(sidebar)
         body.addWidget(workspace)
@@ -73,9 +59,9 @@ class MainWindow(QMainWindow):
 
         # ---------------- Status Bar ----------------
 
-        status = QStatusBar()
-        status.showMessage(
-            "Ready   |   PostgreSQL Connected   |   Version 2.0"
-        )
+        status = Status()
+
+        self.setStatusBar(status)
+        
 
         self.setStatusBar(status)
