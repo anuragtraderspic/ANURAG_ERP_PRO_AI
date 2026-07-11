@@ -13,6 +13,9 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 from app.ui.widgets.sidebar import Sidebar
+from app.ui.widgets.topbar import TopBar
+from app.ui.widgets.statusbar import Status
+from app.ui.pages.dashboard_page import DashboardPage
 
 class MainWindow(QMainWindow):
 
@@ -33,49 +36,26 @@ class MainWindow(QMainWindow):
         root.setContentsMargins(0, 0, 0, 0)
         root.setSpacing(0)
 
-        # ---------------- Top Bar ----------------
+        # ---------- Top Bar ----------
+        top = TopBar()
+        root.addWidget(top)
 
-        topbar = QLabel("🏢  ANURAG ERP PRO AI  |  Enterprise Edition")
-        topbar.setFixedHeight(55)
-        topbar.setAlignment(Qt.AlignVCenter | Qt.AlignLeft)
-        topbar.setStyleSheet("""
-            background:#2563EB;
-            color:white;
-            font-size:26px;
-            font-weight:bold;
-            padding-left:20px;
-        """)
-
-        root.addWidget(topbar)
-
-        # ---------------- Body ----------------
-
+        # ---------- Body ----------
         body = QHBoxLayout()
         body.setContentsMargins(0, 0, 0, 0)
+        body.setSpacing(0)
 
-        # Sidebar Placeholder
-        sidebar = Sidebar()      
+        sidebar = Sidebar()
+        sidebar.setFixedWidth(220)
 
-        # Workspace Placeholder
-        workspace = QLabel("Dashboard Area")
-        workspace.setAlignment(Qt.AlignCenter)
-        workspace.setStyleSheet("""
-            background:#F4F7FC;
-            color:#1E293B;
-            font-size:22px;
-            font-weight:bold;
-        """)
+        workspace = DashboardPage()
 
         body.addWidget(sidebar)
-        body.addWidget(workspace)
+        body.addWidget(workspace, 1)
 
         root.addLayout(body)
 
-        # ---------------- Status Bar ----------------
-
-        status = QStatusBar()
-        status.showMessage(
-            "Ready   |   PostgreSQL Connected   |   Version 2.0"
-        )
-
+        # ---------- Status Bar ----------
+        status = Status()
         self.setStatusBar(status)
+            
